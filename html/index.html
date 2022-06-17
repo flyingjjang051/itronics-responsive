@@ -78,6 +78,11 @@
         </ul>
       </nav>
       <a href="" class="login">login</a>
+      <button class="btnAll">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </header>
     <!-- header end -->
     <div id="mainVisual">
@@ -315,25 +320,35 @@
         once: true,
       });
 
-      const gnb = document.querySelector("#gnb");
-      const header = document.querySelector("#header");
-      gnb.addEventListener("mouseenter", function () {
-        header.classList.add("on");
+      const gnb = $("#gnb");
+      const header = $("#header");
+      const info = $("#info");
+      const btnAll = $("#header .btnAll");
+      console.log(info.offset().top);
+      gnb.on("mouseenter", function () {
+        header.addClass("on");
       });
-      header.addEventListener("mouseleave", function () {
-        header.classList.remove("on");
+      header.on("mouseleave", function () {
+        header.removeClass("on");
       });
-
-      window.addEventListener("scroll", function () {
-        //console.log("나는 스크롤중", window.scrollY);
-        //window.scrollY  0이면 제일 꼭대기에 도달했다. 그렇지 않으면 scroll이 아래로 내려가는 중이다.
-        if (window.scrollY > 0) {
-          header.classList.add("scroll");
+      $(window).on("scroll", function () {
+        // console.log("window.scrollY===", window.scrollY);
+        // console.log("$(window).scrollTop()===", $(window).scrollTop());
+        const scrollY = $(window).scrollTop();
+        const infoY = info.offset().top;
+        if (scrollY > infoY) {
+          //console.log("infoY를 지나가고 있습니다.");
+        }
+        if (scrollY > 0) {
+          header.addClass("scroll");
         } else {
-          header.classList.remove("scroll");
+          header.removeClass("scroll");
         }
       });
-      //window.dispatchEvent("scroll");
+
+      btnAll.on("click", function () {
+        header.toggleClass("open");
+      });
 
       new Swiper("#product .rolling", {
         // 크기는 내가 정한대로 세팅된다.
