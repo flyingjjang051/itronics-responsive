@@ -67,14 +67,14 @@
             </ul>
           </li>
           <li>
-            <a href="" class="depth01">CS CENTER</a>
+            <a href="" class="depth01 only">CS CENTER</a>
             <ul class="depth02">
               <li><a href="">공지사항</a></li>
               <li><a href="">정품등록</a></li>
               <li><a href="">문의하기</a></li>
             </ul>
           </li>
-          <li><a href="" class="depth01 store">store</a></li>
+          <li><a href="" class="depth01 store only">store</a></li>
         </ul>
       </nav>
       <a href="" class="login">login</a>
@@ -323,6 +323,8 @@
       const gnb = $("#gnb");
       const header = $("#header");
       const info = $("#info");
+      const depth01 = $("#gnb  .depth01").not(".store");
+      const depth02 = $("#gnb  .depth02");
       const btnAll = $("#header .btnAll");
       console.log(info.offset().top);
       gnb.on("mouseenter", function () {
@@ -348,7 +350,31 @@
 
       btnAll.on("click", function () {
         header.toggleClass("open");
+        depth02.delay(250).slideUp();
       });
+
+      depth01.on("click", function (e) {
+        //e.preventDefault();
+        if (header.hasClass("mobile")) {
+          const depth02 = $(this).next();
+          const siblings = $(this).parent().siblings().find(".depth02");
+          siblings.stop().slideUp();
+          depth02.stop().slideToggle();
+          return false;
+        }
+      });
+
+      $(window).on("resize", function () {
+        const w = $(window).outerWidth();
+        if (w <= 1200) {
+          header.addClass("mobile");
+        } else {
+          header.removeClass("mobile open");
+          depth02.removeAttr("style");
+        }
+      });
+
+      $(window).trigger("resize");
 
       new Swiper("#product .rolling", {
         // 크기는 내가 정한대로 세팅된다.
@@ -360,6 +386,7 @@
           nextEl: "#product .navigation .next",
         },
       });
+
       //prettier-ignore
       gsap.from(".slogan .char", {
                                   opacity: 0, 

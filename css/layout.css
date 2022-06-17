@@ -88,12 +88,28 @@ button { background: none; outline: none; border: none; }
   #header.open .btnAll span:nth-child(3) { top: 39px; transform: rotate(-45deg); }
   #header .btnAll { display: block; }
   #header .login { right: 80px; }
+  #header:after { z-index: 3; opacity: 0.5; }
   #logo a img { filter: invert(100%); }
-  #gnb { margin-left: 0; position: fixed; top: 0; left: 100%; width: 100%; height: 100vh; background-color: #e77612; color: #fff; padding-top: 80px; transition: position 0.5s ease-in-out; }
+  #gnb { margin-left: 0; position: fixed; top: 0; left: 100%; width: 100%; height: 100vh; background-color: #e77612; color: #fff; padding-top: 80px; transition: left 0.25s ease-in-out; }
   #gnb .list { flex-direction: column; }
-  #gnb .list > li .depth01 { padding: 0 30px; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
+  #gnb .list > li .depth01 { padding: 0 0 0 50px; border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
   #gnb .list > li .depth01.store { color: #fff; }
   #gnb .list > li .depth01:before { display: none; }
   #gnb .list > li .depth02 { text-align: left; padding: 15px 0; background-color: #b85e0e; display: none; }
-  #gnb .list > li .depth02 li a { padding: 15px 0 15px 50px; position: relative; }
-  #gnb .list > li .depth02 li a:before { content: ""; display: block; width: 3px; height: 3px; background-color: #fff; position: absolute; top: 50%; left: 40px; transform: translateY(-50%); } }
+  #gnb .list > li .depth02 li a { padding: 15px 0 15px 60px; position: relative; }
+  #gnb .list > li .depth02 li a:before { content: ""; display: block; width: 3px; height: 3px; background-color: #fff; position: absolute; top: 50%; left: 50px; transform: translateY(-50%); } }
+
+@media all and (max-width: 1024px) { #header { height: 60px; }
+  #header:after { top: 59px; }
+  #header .login { height: 60px; right: 60px; }
+  #header .btnAll { width: 60px; height: 60px; }
+  #header .btnAll span { width: 30px; left: 15px; }
+  #header .btnAll span:nth-child(1) { top: 19px; }
+  #header .btnAll span:nth-child(2) { top: 29px; }
+  #header .btnAll span:nth-child(3) { top: 39px; }
+  #header.open .btnAll span { width: 30px; left: 15px; }
+  #header.open .btnAll span:nth-child(1) { top: 29px; }
+  #header.open .btnAll span:nth-child(3) { top: 29px; }
+  #logo a { height: 60px; }
+  #gnb { padding-top: 60px; }
+  #gnb .list > li .depth01 { height: 60px; } }

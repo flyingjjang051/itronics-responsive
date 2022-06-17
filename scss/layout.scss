@@ -284,6 +284,10 @@ button {
     .login {
       right: 80px;
     }
+    &:after {
+      z-index: 3;
+      opacity: 0.5;
+    }
   }
   #logo a img {
     filter: invert(100%);
@@ -298,12 +302,12 @@ button {
     background-color: $main-color;
     color: #fff;
     padding-top: 80px;
-    transition: position 0.5s ease-in-out;
+    transition: left 0.25s ease-in-out;
     .list {
       flex-direction: column;
       > li {
         .depth01 {
-          padding: 0 30px;
+          padding: 0 0 0 50px;
           border-bottom: 1px solid rgba(255, 255, 255, 0.5);
           &.store {
             color: #fff;
@@ -319,7 +323,7 @@ button {
           display: none;
           li {
             a {
-              padding: 15px 0 15px 50px;
+              padding: 15px 0 15px 60px;
               position: relative;
               &:before {
                 content: "";
@@ -329,11 +333,70 @@ button {
                 background-color: #fff;
                 position: absolute;
                 top: 50%;
-                left: 40px;
+                left: 50px;
                 transform: translateY(-50%);
               }
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1024px) {
+  #header {
+    height: 60px;
+    &:after {
+      top: 59px;
+    }
+    .login {
+      height: 60px;
+      right: 60px;
+    }
+    .btnAll {
+      width: 60px;
+      height: 60px;
+      span {
+        width: 30px;
+        left: 15px;
+        &:nth-child(1) {
+          top: 19px;
+        }
+        &:nth-child(2) {
+          top: 29px;
+        }
+        &:nth-child(3) {
+          top: 39px;
+        }
+      }
+    }
+    &.open {
+      .btnAll {
+        span {
+          width: 30px;
+          left: 15px;
+          &:nth-child(1) {
+            top: 29px;
+          }
+          &:nth-child(3) {
+            top: 29px;
+          }
+        }
+      }
+    }
+  }
+  #logo {
+    a {
+      height: 60px;
+    }
+  }
+  #gnb {
+    padding-top: 60px;
+    .list {
+      > li {
+        .depth01 {
+          height: 60px;
         }
       }
     }
