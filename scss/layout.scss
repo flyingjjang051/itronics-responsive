@@ -343,7 +343,6 @@ button {
     }
   }
 }
-
 @media all and (max-width: 1024px) {
   #header {
     height: 60px;
@@ -398,6 +397,28 @@ button {
         .depth01 {
           height: 60px;
         }
+      }
+    }
+  }
+}
+@media all and (max-width: 480px) {
+  #logo {
+    left: 20px;
+    a {
+      img {
+        height: 15px;
+      }
+    }
+  }
+  #gnb .list > li {
+    .depth01 {
+      padding-left: 20px;
+    }
+    .depth02 li a {
+      padding-left: 30px;
+      font-size: 14px;
+      &:before {
+        left: 20px;
       }
     }
   }

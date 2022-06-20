@@ -1,16 +1,18 @@
-#mainVisual { overflow: hidden; }
+#mainVisual { overflow: hidden; position: relative; min-height: 400px; }
 
-#mainVisual .slogan { position: absolute; top: 50%; color: #fff; text-align: center; font-size: 5vw; font-weight: 700; width: 100%; transform: translateY(-50%); text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); }
+#mainVisual:before { content: ""; display: block; padding-top: 56.25%; }
+
+#mainVisual .slogan { position: absolute; top: 50%; color: #fff; text-align: center; font-size: clamp(24px, 5vw, 64px); font-weight: 700; width: 100%; transform: translateY(-50%); text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); }
 
 #mainVisual .slogan .char { transform-origin: 0 100%; }
 
-#mainVisual video { width: 100%; height: 100vh; object-fit: cover; vertical-align: top; }
+#mainVisual video { width: 100%; height: 100%; object-fit: cover; vertical-align: top; position: absolute; left: 0; top: 0; z-index: -1; }
 
 #info { display: flex; }
 
 #info .contentsBox { flex-basis: 50%; height: 100vh; padding: 150px 5vw 0; }
 
-#info .contentsBox .title { margin-bottom: 30px; font-size: 42px; font-weight: 700; line-height: 1.25; }
+#info .contentsBox .title { margin-bottom: 30px; letter-spacing: -0.02em; font-size: clamp(16px, 4vw, 48px); font-weight: 700; line-height: 1.25; }
 
 #info .contentsBox p { margin-bottom: 80px; font-size: 18px; line-height: 1.5; }
 
@@ -99,3 +101,15 @@
 #news .contents li .txt { font-size: 28px; font-weight: 500; margin-bottom: 30px; display: -webkit-box; height: 3em; overflow: hidden; line-height: 1.5; -webkit-line-clamp: 2; /* autoprefixer: off */ -webkit-box-orient: vertical; word-break: break-all; }
 
 #news .contents li .more { text-transform: uppercase; }
+
+@media all and (max-width: 1400px) { #info .contentsBox { padding: 0; position: relative; height: auto; }
+  #info .contentsBox:before { content: ""; display: block; padding-top: 100%; }
+  #info .contentsBox .inner { position: absolute; left: 0; top: 0; width: 100%; height: 100%; padding: 50px; box-sizing: border-box; } }
+
+@media all and (max-width: 960px) { #info .contentsBox .inner { padding: 30px; } }
+
+@media all and (max-width: 480px) { br { content: ""; }
+  #info .contentsBox .inner { padding: 20px; }
+  #info .contentsBox .title { margin-bottom: 15px; }
+  #info .contentsBox p { font-size: 12px; margin-bottom: 15px; }
+  #info .contentsBox .btns { font-size: 12px; } }
