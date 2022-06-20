@@ -20,7 +20,7 @@
 
 #info .b2c { color: #111; background-position: right 0 bottom 0; background-repeat: no-repeat; background-size: 80%; background-image: url("../images/main/business_figure_02.png"); }
 
-#business { display: flex; justify-content: center; align-items: center; color: #fff; position: relative; background-size: cover; background-repeat: no-repeat; background-position: 50%; background-image: url("../images/main/bg_business.jpg"); background-attachment: fixed; }
+#business { display: flex; justify-content: center; align-items: center; color: #fff; position: relative; z-index: 2; min-height: 500px; background-size: cover; background-repeat: no-repeat; background-position: 50%; background-image: url("../images/main/bg_business.jpg"); background-attachment: fixed; }
 
 #business:before { content: ""; display: block; padding-top: clamp(500px, 56.25%, 100vh); }
 
@@ -33,6 +33,10 @@
 .videoContents { position: relative; }
 
 .videoContents video { vertical-align: top; width: 100%; height: 100vh; object-fit: cover; }
+
+.videoContents video.onlyMobile { display: none; }
+
+.videoContents video.onlyPc { display: block; }
 
 .videoContents .txtBox { width: 50%; height: 100%; position: absolute; top: 0; left: 0; color: #fff; display: flex; flex-direction: column; justify-content: center; padding: 0 10vw; box-sizing: border-box; word-break: keep-all; }
 
@@ -108,7 +112,18 @@
   #info .contentsBox:before { content: ""; display: block; padding-top: 100%; }
   #info .contentsBox .inner { position: absolute; left: 0; top: 0; width: 100%; height: 100%; padding: 50px; box-sizing: border-box; } }
 
-@media all and (max-width: 960px) { #info .contentsBox .inner { padding: 30px; } }
+@media all and (max-width: 960px) { #info .contentsBox .inner { padding: 30px; }
+  .videoContents { height: 100vh; }
+  .videoContents .video { width: 100%; }
+  .videoContents video { height: 100%; }
+  .videoContents video.onlyMobile { display: block; width: 100%; }
+  .videoContents video.onlyPc { display: none; }
+  .videoContents .txtBox { width: 100%; height: auto; position: absolute; bottom: 50px; display: block; top: auto; }
+  .videoContents .txtBox .title { font-size: clamp(24px, 3vw, 42px); }
+  .videoContents .txtBox .sub { font-size: clamp(16px, 2vw, 28px); }
+  .videoContents .txtBox .desc { font-size: clamp(12px, 1vw, 16px); }
+  .videoContents .txtBox .btns { font-size: clamp(12px, 1vw, 16px); }
+  .videoContents#highpass .txtBox { left: 0; } }
 
 @media all and (max-width: 640px) { br { content: ""; }
   #info .contentsBox p { font-size: 12px; margin-bottom: 15px; }
