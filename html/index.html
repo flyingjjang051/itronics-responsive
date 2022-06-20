@@ -386,12 +386,18 @@
 
       new Swiper("#product .rolling", {
         // 크기는 내가 정한대로 세팅된다.
-        slidesPerView: "auto",
-        spaceBetween: 80,
+        slidesPerView: 1,
+        spaceBetween: 20,
         loop: true,
         navigation: {
           prevEl: "#product .navigation .prev",
           nextEl: "#product .navigation .next",
+        },
+        breakpoints: {
+          480: {
+            slidesPerView: "auto",
+            spaceBetween: 80,
+          },
         },
       });
 
