@@ -126,6 +126,7 @@
     object-fit: cover;
     &.onlyMobile {
       display: none;
+      overflow: hidden;
     }
     &.onlyPc {
       display: block;

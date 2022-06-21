@@ -34,7 +34,7 @@
 
 .videoContents video { vertical-align: top; width: 100%; height: 100vh; object-fit: cover; }
 
-.videoContents video.onlyMobile { display: none; }
+.videoContents video.onlyMobile { display: none; overflow: hidden; }
 
 .videoContents video.onlyPc { display: block; }
 
